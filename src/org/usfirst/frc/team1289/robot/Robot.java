@@ -35,6 +35,7 @@ public class Robot extends IterativeRobot {
     private static Command _shooterCommand;
     private static Command _autoPlaceGearCommand;
     private static Command _autoDriveToLineCommand;
+    private static Command _autoSimpleDriveCommand;
     
     private static SendableChooser _autoChooser;
 
@@ -55,17 +56,19 @@ public class Robot extends IterativeRobot {
         
         _camera = new Camera();
 
-        _autoChooser.addDefault("PlaceGear", _autoPlaceGearCommand);
+        _autoChooser.addDefault("SimpleDrive", _autoSimpleDriveCommand);
+        _autoChooser.addObject("PlaceGear", _autoPlaceGearCommand);
         _autoChooser.addObject("MoveToBaseline", _autoDriveToLineCommand);
         SmartDashboard.putData("AutoMode", _autoChooser);
 
-        _camera.Start();
+        //_camera.Start();
     }
     
     private void CommandInit()
     {
     	_winchCommand = new WinchRaise();
     	_shooterCommand = new EnableShooter();
+	_autoSimpleDriveCommand = new SimpleDrive();
     	_autoPlaceGearCommand = new DriveViaEncoder(0.1, 128.0);
     	_autoDriveToLineCommand = new DriveViaEncoder(0.1, 130.0);
     }

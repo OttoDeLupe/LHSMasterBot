@@ -37,10 +37,10 @@ public class DriveTrain extends Subsystem
     
     // Sets the motor speed of all motors to the desired setting
     // no rotation value, so no turning. This moves fwd/bkwd only
-    public void Move(double speed)
+    public void Move(double speed, double rotate)
     {
     	boolean squareInputs = false; 
-    	_robotDrive.arcadeDrive(0.3 /*speed*/, 0.0, squareInputs);
+    	_robotDrive.arcadeDrive(speed, rotate, squareInputs);
     }
 
     // Scale the raw value into a piecewise linear equation
