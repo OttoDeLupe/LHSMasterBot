@@ -140,7 +140,7 @@ public class Robot extends IterativeRobot {
         if (_autonomousCommand != null) 
         	_autonomousCommand.cancel();
         
-        Command cmd = new DriveViaJoystick(); 
+        Command cmd = new SimpleDrive(); 
         cmd.start();
     }
 
